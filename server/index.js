@@ -50,6 +50,9 @@ app.use("/users",userRouts);
 //mongoose
 
 const PORT = process.env.PORT || 6001;
+console.log(process.env.MONGO_URL)
+mongoose.set('strictQuery', true);
+
 mongoose
     .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,

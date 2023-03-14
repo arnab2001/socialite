@@ -1,21 +1,18 @@
-const JsonWebTokenError = require('./lib/JsonWebTokenError');
-const NotBeforeError = require('./lib/NotBeforeError');
-const TokenExpiredError = require('./lib/TokenExpiredError');
-const decode = require('./decode');
-const timespan = require('./lib/timespan');
-const validateAsymmetricKey = require('./lib/validateAsymmetricKey');
-const PS_SUPPORTED = require('./lib/psSupported');
-const jws = require('jws');
-const {KeyObject, createSecretKey, createPublicKey} = require("crypto");
+var JsonWebTokenError = require('./lib/JsonWebTokenError');
+var NotBeforeError    = require('./lib/NotBeforeError');
+var TokenExpiredError = require('./lib/TokenExpiredError');
+var decode            = require('./decode');
+var timespan          = require('./lib/timespan');
+var PS_SUPPORTED      = require('./lib/psSupported');
+var jws               = require('jws');
 
-const PUB_KEY_ALGS = ['RS256', 'RS384', 'RS512'];
-const EC_KEY_ALGS = ['ES256', 'ES384', 'ES512'];
-const RSA_KEY_ALGS = ['RS256', 'RS384', 'RS512'];
-const HS_ALGS = ['HS256', 'HS384', 'HS512'];
+var PUB_KEY_ALGS = ['RS256', 'RS384', 'RS512', 'ES256', 'ES384', 'ES512'];
+var RSA_KEY_ALGS = ['RS256', 'RS384', 'RS512'];
+var HS_ALGS = ['HS256', 'HS384', 'HS512'];
 
 if (PS_SUPPORTED) {
-  PUB_KEY_ALGS.splice(PUB_KEY_ALGS.length, 0, 'PS256', 'PS384', 'PS512');
-  RSA_KEY_ALGS.splice(RSA_KEY_ALGS.length, 0, 'PS256', 'PS384', 'PS512');
+  PUB_KEY_ALGS.splice(3, 0, 'PS256', 'PS384', 'PS512');
+  RSA_KEY_ALGS.splice(3, 0, 'PS256', 'PS384', 'PS512');
 }
 
 module.exports = function (jwtString, secretOrPublicKey, options, callback) {
@@ -31,7 +28,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
   //clone this object since we are going to mutate it.
   options = Object.assign({}, options);
 
-  let done;
+  var done;
 
   if (callback) {
     done = callback;
@@ -50,11 +47,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     return done(new JsonWebTokenError('nonce must be a non-empty string'));
   }
 
-  if (options.allowInvalidAsymmetricKeyTypes !== undefined && typeof options.allowInvalidAsymmetricKeyTypes !== 'boolean') {
-    return done(new JsonWebTokenError('allowInvalidAsymmetricKeyTypes must be a boolean'));
-  }
-
-  const clockTimestamp = options.clockTimestamp || Math.floor(Date.now() / 1000);
+  var clockTimestamp = options.clockTimestamp || Math.floor(Date.now() / 1000);
 
   if (!jwtString){
     return done(new JsonWebTokenError('jwt must be provided'));
@@ -64,13 +57,13 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     return done(new JsonWebTokenError('jwt must be a string'));
   }
 
-  const parts = jwtString.split('.');
+  var parts = jwtString.split('.');
 
   if (parts.length !== 3){
     return done(new JsonWebTokenError('jwt malformed'));
   }
 
-  let decodedToken;
+  var decodedToken;
 
   try {
     decodedToken = decode(jwtString, { complete: true });
@@ -82,8 +75,8 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     return done(new JsonWebTokenError('invalid token'));
   }
 
-  const header = decodedToken.header;
-  let getSecret;
+  var header = decodedToken.header;
+  var getSecret;
 
   if(typeof secretOrPublicKey === 'function') {
     if(!callback) {
@@ -103,7 +96,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
       return done(new JsonWebTokenError('error in secret or public key callback: ' + err.message));
     }
 
-    const hasSignature = parts[2].trim() !== '';
+    var hasSignature = parts[2].trim() !== '';
 
     if (!hasSignature && secretOrPublicKey){
       return done(new JsonWebTokenError('jwt signature is required'));
@@ -114,52 +107,21 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     }
 
     if (!hasSignature && !options.algorithms) {
-      return done(new JsonWebTokenError('please specify "none" in "algorithms" to verify unsigned tokens'));
-    }
-
-    if (secretOrPublicKey != null && !(secretOrPublicKey instanceof KeyObject)) {
-      try {
-        secretOrPublicKey = createPublicKey(secretOrPublicKey);
-      } catch (_) {
-        try {
-          secretOrPublicKey = createSecretKey(typeof secretOrPublicKey === 'string' ? Buffer.from(secretOrPublicKey) : secretOrPublicKey);
-        } catch (_) {
-          return done(new JsonWebTokenError('secretOrPublicKey is not valid key material'))
-        }
-      }
+      options.algorithms = ['none'];
     }
 
     if (!options.algorithms) {
-      if (secretOrPublicKey.type === 'secret') {
-        options.algorithms = HS_ALGS;
-      } else if (['rsa', 'rsa-pss'].includes(secretOrPublicKey.asymmetricKeyType)) {
-        options.algorithms = RSA_KEY_ALGS
-      } else if (secretOrPublicKey.asymmetricKeyType === 'ec') {
-        options.algorithms = EC_KEY_ALGS
-      } else {
-        options.algorithms = PUB_KEY_ALGS
-      }
+      options.algorithms = ~secretOrPublicKey.toString().indexOf('BEGIN CERTIFICATE') ||
+        ~secretOrPublicKey.toString().indexOf('BEGIN PUBLIC KEY') ? PUB_KEY_ALGS :
+        ~secretOrPublicKey.toString().indexOf('BEGIN RSA PUBLIC KEY') ? RSA_KEY_ALGS : HS_ALGS;
+
     }
 
-    if (options.algorithms.indexOf(decodedToken.header.alg) === -1) {
+    if (!~options.algorithms.indexOf(decodedToken.header.alg)) {
       return done(new JsonWebTokenError('invalid algorithm'));
     }
 
-    if (header.alg.startsWith('HS') && secretOrPublicKey.type !== 'secret') {
-      return done(new JsonWebTokenError((`secretOrPublicKey must be a symmetric key when using ${header.alg}`)))
-    } else if (/^(?:RS|PS|ES)/.test(header.alg) && secretOrPublicKey.type !== 'public') {
-      return done(new JsonWebTokenError((`secretOrPublicKey must be an asymmetric key when using ${header.alg}`)))
-    }
-
-    if (!options.allowInvalidAsymmetricKeyTypes) {
-      try {
-        validateAsymmetricKey(header.alg, secretOrPublicKey);
-      } catch (e) {
-        return done(e);
-      }
-    }
-
-    let valid;
+    var valid;
 
     try {
       valid = jws.verify(jwtString, decodedToken.header.alg, secretOrPublicKey);
@@ -171,7 +133,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
       return done(new JsonWebTokenError('invalid signature'));
     }
 
-    const payload = decodedToken.payload;
+    var payload = decodedToken.payload;
 
     if (typeof payload.nbf !== 'undefined' && !options.ignoreNotBefore) {
       if (typeof payload.nbf !== 'number') {
@@ -192,10 +154,10 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     }
 
     if (options.audience) {
-      const audiences = Array.isArray(options.audience) ? options.audience : [options.audience];
-      const target = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
+      var audiences = Array.isArray(options.audience) ? options.audience : [options.audience];
+      var target = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
 
-      const match = target.some(function (targetAudience) {
+      var match = target.some(function (targetAudience) {
         return audiences.some(function (audience) {
           return audience instanceof RegExp ? audience.test(targetAudience) : audience === targetAudience;
         });
@@ -207,7 +169,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     }
 
     if (options.issuer) {
-      const invalid_issuer =
+      var invalid_issuer =
               (typeof options.issuer === 'string' && payload.iss !== options.issuer) ||
               (Array.isArray(options.issuer) && options.issuer.indexOf(payload.iss) === -1);
 
@@ -239,7 +201,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
         return done(new JsonWebTokenError('iat required when maxAge is specified'));
       }
 
-      const maxAgeTimestamp = timespan(options.maxAge, payload.iat);
+      var maxAgeTimestamp = timespan(options.maxAge, payload.iat);
       if (typeof maxAgeTimestamp === 'undefined') {
         return done(new JsonWebTokenError('"maxAge" should be a number of seconds or string representing a timespan eg: "1d", "20h", 60'));
       }
@@ -249,7 +211,7 @@ module.exports = function (jwtString, secretOrPublicKey, options, callback) {
     }
 
     if (options.complete === true) {
-      const signature = decodedToken.signature;
+      var signature = decodedToken.signature;
 
       return done(null, {
         header: header,
