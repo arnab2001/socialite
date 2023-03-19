@@ -5,3 +5,4 @@ mern stack social media app
 ### Backend
 - Auth
 - User
+- posts
