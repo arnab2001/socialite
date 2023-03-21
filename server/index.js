@@ -12,6 +12,9 @@ import helmet from 'helmet';
 import authRouts from './routes/auth.js';
 import userRouts from './routes/users.js';
 import { register } from './controllers/auth.js';
+import postRouts from './routes/posts.js';
+import { verifyToken } from './middleware/auth.js';
+
 /* Configs */
 
 const __filename = fileURLToPath(import.meta.url); 
@@ -43,10 +46,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 //routes w files
 app.post("/auth/register", upload.single("picture"), register);
+app.post("/posts", verifyToken,upload.single("picture"));
 
 /*routes*/
 app.use("/auth",authRouts);
 app.use("/users",userRouts);
+app.use("/posts",postRouts);
 //mongoose
 
 const PORT = process.env.PORT || 6001;
