@@ -6,6 +6,3 @@ mern stack social media app
 - Auth
 - User
 - posts
-
-### Frontend
-- initialised CRA with vite+swc

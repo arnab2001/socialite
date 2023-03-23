@@ -53,7 +53,8 @@ export const {
     setLogout, 
     setFriends, 
     setPosts, 
-    setPost } = appSlice.actions;
+    setPost } = authSlice.actions;
 
-export default appSlice.actions; 
+export default authSlice.reducer; 
 
+ 
