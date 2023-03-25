@@ -3,7 +3,10 @@ import HomePage from './scenes/homePage'
 import LoginPage from './scenes/loginPage'
 import ProfilePage from './scenes/profilePage'
 import './App.css'
-
+import { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import { CssBaseline } from '@mui/material'
+import {createTheme, ThemeProvider} from '@mui/material/styles'
 function App() {
 
 
