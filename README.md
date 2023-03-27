@@ -6,3 +6,7 @@ mern stack social media app
 - Auth
 - User
 - posts
+
+### Frontend
+- Setup 
+- Inisializing themes
