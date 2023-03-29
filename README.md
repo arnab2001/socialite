@@ -10,3 +10,4 @@ mern stack social media app
 ### Frontend
 - Setup 
 - Inisializing themes
+- state manager added
