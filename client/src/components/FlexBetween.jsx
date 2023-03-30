@@ -1,5 +1,7 @@
-import { Box } from '@material-ui/core';
-import { styled } from '@material-ui/core/styles';
+// import { Box } from '@mui/core';
+// import { styled } from '@mui/core/styles';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 
 const FlexBetween = styled(Box)({
     display: 'flex',
