@@ -11,3 +11,4 @@ mern stack social media app
 - Setup 
 - Inisializing themes
 - state manager added
+- theme settings added
