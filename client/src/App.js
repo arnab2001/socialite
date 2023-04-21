@@ -9,6 +9,7 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import Navbar from "scenes/navbar";
 
+
 function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
@@ -20,7 +21,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route path="/" element={<Navbar />} />
+            <Route path="/" element={<LoginPage />} />
             <Route
               path="/home"
               element={isAuth ? <HomePage /> : <Navigate to="/" />}

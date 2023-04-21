@@ -41,7 +41,7 @@ app.use("/assets",express.static(path.join(__dirname, 'public')));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "public/assets");
+        cb(null, "./public/assets");
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -58,7 +58,7 @@ app.use("/users",userRouts);
 app.use("/posts",postRouts);
 //mongoose
 
-const PORT = process.env.PORT || 6001;
+const PORT = process.env.PORT || 3001;
 console.log(process.env.MONGO_URL)
 mongoose.set('strictQuery', true);
 
