@@ -38,7 +38,7 @@ const FriendListWidget = ({ userId }) => {
         Friend List
       </Typography>
       <Box display="flex" flexDirection="column" gap="1.5rem">
-        {friends.map((friend) => (
+        {Object.keys(friends).forEach((friend) => (
           <Friend
             key={friend._id}
             friendId={friend._id}
@@ -47,6 +47,7 @@ const FriendListWidget = ({ userId }) => {
             userPicturePath={friend.picturePath}
           />
         ))}
+        {console.log(friends)}
       </Box>
     </WidgetWrapper>
   );
