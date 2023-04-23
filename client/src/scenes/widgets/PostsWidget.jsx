@@ -15,6 +15,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     });
     const data = await response.json();
     dispatch(setPosts({ posts: data }));
+    response.json().then((data) => {
+      console.log(data);
+    }
+    )
   };
 
   const getUserPosts = async () => {
@@ -26,6 +30,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       }
     );
     const data = await response.json();
+    
     dispatch(setPosts({ posts: data }));
   };
 
@@ -36,11 +41,11 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       getPosts();
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
- console.log(posts)
+ 
   return (
    
     <>
-      {Object.keys(posts).forEach( 
+      {posts.forEach( 
         (
           _id,
           userId,
@@ -65,10 +70,12 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             likes={likes}
             comments={comments}
           />
+          
         )
       )}
     </>
   );
+
 };
 
 export default PostsWidget;

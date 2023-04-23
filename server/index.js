@@ -41,7 +41,7 @@ app.use("/assets",express.static(path.join(__dirname, 'public')));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./public/assets");
+        cb(null, "./public");
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -73,5 +73,5 @@ mongoose
 
         // insert dummy data to test
         // User.insertMany(users);
-        // Post.insertMany(posts);
+       // Post.insertMany(posts);
 }).catch((error) => console.log(error.message));
