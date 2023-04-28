@@ -81,8 +81,10 @@ export const likePost = async (req, res) => {
     try{
         const { id} = req.params;
         const { userId } = req.body;
-        const Post = await Post.findById(id);
+        const post = await Post?.findById(id);
+        console.log(post);
         const isliked = post.likes.get(userId);
+        console.log(isliked);
         
         if (isliked){
             post.likes.delete(userId);
@@ -100,7 +102,7 @@ export const likePost = async (req, res) => {
 
 
 
-        res.status(200).json({message: "likePost"});
+        // res.status(200).json({message: "likePost"});
     }catch(err){
         res.status(404).json({message: err.message});
     }
