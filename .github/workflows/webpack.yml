@@ -26,4 +26,4 @@ jobs:
       run: |
         cd client
         npm install
-        npx webpack
+        npm run build
