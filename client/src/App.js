@@ -8,6 +8,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import Navbar from "scenes/navbar";
+import CommentSection from "components/CommentSection";
 
 
 function App() {
