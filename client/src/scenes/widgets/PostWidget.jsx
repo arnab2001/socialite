@@ -4,13 +4,14 @@ import {
   FavoriteOutlined,
   ShareOutlined,
 } from "@mui/icons-material";
-import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Divider, IconButton, Typography, useTheme  } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import Friend from "components/Friend";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "state";
+import CommentSection from "components/CommentSection";
 
 const PostWidget = ({
   postId,
@@ -29,6 +30,7 @@ const PostWidget = ({
   const loggedInUserId = useSelector((state) => state.user._id);
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
+  const commentCount = Object.keys(comments).length;
 
   const { palette } = useTheme();
   const main = palette.neutral.main;
@@ -43,6 +45,18 @@ const PostWidget = ({
       },
       body: JSON.stringify({ userId: loggedInUserId }),
     });
+    const postComments = async () => {
+      const response = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: loggedInUserId }),
+      });
+      const postComments = await response.json();
+      dispatch(setPost({ post: postComments }));
+    };
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
     console.log("event")
@@ -94,19 +108,15 @@ const PostWidget = ({
           <ShareOutlined />
         </IconButton>
       </FlexBetween>
-      {isComments && (
-        <Box mt="0.5rem">
-          {comments?.map(({comment, i}) => (
-            <Box key={`${name}-${i}`}>
-              <Divider />
-              <Typography sx={{ color: main, m: "0.5rem 0", pl: "1rem" }}>
-                {comment}
-              </Typography>
-            </Box>
-          ))}
-          <Divider />
-        </Box>
-      )}
+      <CommentSection
+      comments={comments}
+      name={name}
+      avatar={`http://localhost:3001/assets/ ${picturePath}`}
+      postId={postId}
+      token={token}
+      loggedInUserId={loggedInUserId}
+      dispatch={dispatch}
+    />
     </WidgetWrapper>
   );
 };

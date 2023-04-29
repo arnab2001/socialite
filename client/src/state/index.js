@@ -5,6 +5,7 @@ const initialState = {
   user: null,
   token: null,
   posts: [],
+  comments: [], // new state for comments
 };
 
 export const authSlice = createSlice({
@@ -40,9 +41,16 @@ export const authSlice = createSlice({
       });
       state.posts = updatedPosts;
     },
+    setPostComments: (state, action) => { // new reducer for comments
+      const postIndex = state.posts.findIndex(post => post._id === action.payload.postId);
+      if (postIndex !== -1) {
+        state.posts[postIndex].comments = action.payload.comments;
+      }
+      state.comments = action.payload.comments;
+    }
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setPostComments } =
   authSlice.actions;
 export default authSlice.reducer;
