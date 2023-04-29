@@ -8,7 +8,7 @@ const LoginPage = () => {
 
   return (
     <>
-    <Navbar/> 
+   
     <Box 
     sx={{
        textAlign:"center",

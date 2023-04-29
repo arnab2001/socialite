@@ -108,15 +108,17 @@ const PostWidget = ({
           <ShareOutlined />
         </IconButton>
       </FlexBetween>
-      <CommentSection
-      comments={comments}
-      name={name}
-      avatar={`http://localhost:3001/assets/ ${picturePath}`}
-      postId={postId}
-      token={token}
-      loggedInUserId={loggedInUserId}
-      dispatch={dispatch}
-    />
+      {isComments && (
+         <CommentSection
+         comments={comments}
+         name={name}
+         avatar={`http://localhost:3001/assets/ ${picturePath}`}
+         postId={postId}
+         token={token}
+         loggedInUserId={loggedInUserId}
+         dispatch={dispatch}
+       />
+      )}
     </WidgetWrapper>
   );
 };
