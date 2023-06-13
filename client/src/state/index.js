@@ -32,14 +32,17 @@ export const authSlice = createSlice({
     },
     setPosts: (state, action) => {
       state.posts = action.payload.posts;
-      console.log("setPosts", state.posts);
+      console.log("setPosts - from client/state", state.posts);
     },
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
         if (post._id === action.payload.post._id) return action.payload.post;
+        console.log("setPost - from client/state", post);
         return post;
+        
       });
       state.posts = updatedPosts;
+      
     },
     setPostComments: (state, action) => { // new reducer for comments
       const postIndex = state.posts.findIndex(post => post._id === action.payload.postId);
