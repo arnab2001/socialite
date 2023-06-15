@@ -23,6 +23,8 @@ const PostWidget = ({
   userPicturePath,
   likes,
   comments,
+  createdAt,
+
 }) => {
   const [isComments, setIsComments] = useState(false);
   const dispatch = useDispatch();
@@ -31,6 +33,21 @@ const PostWidget = ({
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
   const commentCount = Object.keys(comments).length;
+
+ 
+  // mongo date to string
+  const date = new Date(createdAt);
+  const datetime = date.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  console.log("created at", createdAt);
+
+
 
   const { palette } = useTheme();
   const main = palette.neutral.main;
@@ -69,7 +86,9 @@ const PostWidget = ({
         name={name}
         subtitle={location}
         userPicturePath={userPicturePath}
+        datetime={datetime}
       />
+      
       <Typography color={main} sx={{ mt: "1rem" }}>
         {description}
       </Typography>

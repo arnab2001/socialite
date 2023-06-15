@@ -6,7 +6,7 @@ import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
-const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
+const Friend = ({ friendId, name, subtitle, userPicturePath , datetime }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
@@ -18,6 +18,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const primaryDark = palette.primary.dark;
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
+  console.log(datetime + "friend.jsx");
 
   const isFriend = friends.find((friend) => friend._id === friendId);
 
@@ -35,6 +36,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
+
 
   return (
     <FlexBetween>
@@ -61,6 +63,11 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           </Typography>
           <Typography color={medium} fontSize="0.75rem">
             {subtitle}
+          </Typography>
+          {/* section for date and time */}
+          <Typography color={medium} fontSize="0.75rem">
+            {datetime}
+            
           </Typography>
         </Box>
       </FlexBetween>

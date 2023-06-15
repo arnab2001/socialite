@@ -47,7 +47,7 @@ const FriendListWidget = ({ userId }) => {
             userPicturePath={friend.picturePath}
           />
         ))}
-        {console.log(friends)}
+        {/* {console.log(friends)} */}
       </Box>
     </WidgetWrapper>
   );
