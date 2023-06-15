@@ -32,12 +32,12 @@ export const authSlice = createSlice({
     },
     setPosts: (state, action) => {
       state.posts = action.payload.posts;
-      console.log("setPosts - from client/state", state.posts);
+      console.log("0 setPosts - from client/state", state.posts);
     },
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
         if (post._id === action.payload.post._id) return action.payload.post;
-        console.log("setPost - from client/state", post);
+        console.log("1 setPost - from client/state", post);
         return post;
         
       });
