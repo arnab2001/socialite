@@ -35,7 +35,7 @@ const PostWidget = ({
   const commentCount = Object.keys(comments).length;
 
  
-  // mongo date to string
+  // date to string
   const date = new Date(createdAt);
   const datetime = date.toLocaleString("en-US", {
     month: "short",
@@ -45,7 +45,7 @@ const PostWidget = ({
     minute: "numeric",
     hour12: true,
   });
-  console.log("created at", createdAt);
+  console.log("created at (PostWidget)", createdAt);
 
 
 
