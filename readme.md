@@ -1,22 +1,10 @@
-# socialite
-mern stack social media app
-
-## Progress:
-### Backend
-- Auth
-- User
-- posts
-
-### Frontend
-- Setup 
-- Inisializing themes
 
 
 <div align="center">
 <h1 align="center">
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
 <br>socialite</h1>
-<h3>◦ HTTPStatus Exception: 429</h3>
+<h3>◦ mern stack social media app</h3>
 <h3>◦ Developed with the software and tools below.</h3>
 
 <p align="center">
@@ -272,11 +260,7 @@ HTTPStatus Exception: 429
 
 Please ensure you have the following dependencies installed on your system:
 
-`- ℹ️ Dependency 1`
-
-`- ℹ️ Dependency 2`
-
-`- ℹ️ ...`
+`- ℹ️ NodeJs`
 
 ### 🔧 Installation
 
@@ -310,10 +294,20 @@ npm test
 
 
 ## 🛣 Roadmap
+# socialite
+mern stack social media app
 
-> - [X] `ℹ️  Task 1: Implement X`
-> - [ ] `ℹ️  Task 2: Implement Y`
-> - [ ] `ℹ️ ...`
+## Progress:
+### Backend
+- Real Time Chat
+- Dockerization
+- Caching using redis
+
+### Frontend
+- Better Ux
+- Comment section
+- Ui implementation of Chat window
+
 
 
 ---
@@ -330,7 +324,7 @@ git checkout -b new-feature-branch
 4. Make changes to the project's codebase.
 5. Commit your changes to your local branch with a clear commit message that explains the changes you've made.
 ```sh
-git commit -m 'Implemented new feature.'
+git commit -m 'feat:  new feature.'
 ```
 6. Push your changes to your forked repository on GitHub using the following command
 ```sh
