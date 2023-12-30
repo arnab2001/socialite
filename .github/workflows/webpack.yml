@@ -1,29 +1,53 @@
-name: NodeJS with Webpack
+name: CI/CD
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-  build:
+  client:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16
 
-    - name: Build
+    - name: Install Client Dependencies
+      working-directory: ./client
       run: |
-        cd client
         npm install
-        npm start
+
+    - name: Build and Test Client
+      working-directory: ./client
+      run: |
+        npm run build
+        npm test
+
+  server:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install Server Dependencies
+      working-directory: ./server
+      run: |
+        npm install
+
+    - name: Test Server
+      working-directory: ./server
+      run: |
+        npm test
+
