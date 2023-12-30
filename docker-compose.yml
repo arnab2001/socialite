@@ -1,18 +1,30 @@
-version: "3"
+version: '3'
+
 services:
-  backend:
-    image: backend-image
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+  server:
     build:
       context: ./server
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     environment:
-      - MONGO_URL='mongodb+srv://arnab0321:bH1Ttke9EZBmYClg@cluster0.dehf4yw.mongodb.net/?retryWrites=true&w=majority'
-    # Add any additional configuration or volumes as needed
+      MONGO_URL: "mongodb+srv://arnab0321:bH1Ttke9EZBmYClg@cluster0.dehf4yw.mongodb.net/?retryWrites=true&w=majority"
+    depends_on:
+      - mongo
 
-  frontend:
-    image: frontend-image
-    build:
-      context: ./client
+  mongo:
+    image: mongo
     ports:
-      - "80:80"
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db  # You can adjust the volume mount based on your preferences
+

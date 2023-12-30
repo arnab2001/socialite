@@ -1,19 +1,18 @@
-FROM node:18.3.0-alpine3.14
+FROM node:16.13.0
 
-# Set the working directory inside the container
-WORKDIR /app
+# Create App Directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the container
+# Install Dependencies
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --f
+RUN npm install --silent
 
-# Copy the rest of the backend files to the container
+# Copy app source code
 COPY . .
 
-# Expose the port your backend server listens on
+# Exports
 EXPOSE 3001
 
-# Set the startup command to run your backend server
-CMD ["npm", "start"]
+CMD ["node","index.js"]

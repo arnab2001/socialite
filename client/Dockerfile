@@ -1,11 +1,22 @@
-# Use a base image with Nginx pre-installed
-FROM nginx:alpine
+# Build react client
+FROM node:16-alpine
 
-# Copy the built frontend files to the appropriate location in the container
-COPY build/ /usr/share/nginx/html
+# Working directory be app
+WORKDIR /usr/src/app
 
-# Expose the port your frontend application listens on
-EXPOSE 80
+COPY package*.json ./
 
-# Set the startup command to run the Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+###  Installing dependencies
+
+RUN npm install --silent
+
+# copy local files to app folder
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm","start"]
+
+# docker build -t arnabchat2001/client  .
+# docker tag arnabchat2001/client arnabchat2001/client:v2
+# docker run -p 3000:3000 arnabchat2001/client:v2
