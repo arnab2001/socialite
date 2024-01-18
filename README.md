@@ -1,11 +1,12 @@
-
-
 <div align="center">
 <h1 align="center">
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
 <br>socialite</h1>
-<h3>◦ mern stack social media app</h3>
-<h3>◦ Developed with the software and tools below.</h3>
+
+🌟 Welcome to Socialite - The Ultimate Social Connection Hub! 🌟
+
+The community at Socialite is buzzing with excitement as new members join the platform. Users are invited to immerse themselves in a world where connections thrive, friendships flourish, and happiness knows no bounds.
+
 
 <p align="center">
 <img src="https://img.shields.io/badge/SVG-FFB13B.svg?style&logo=SVG&logoColor=black" alt="SVG" />
@@ -48,7 +49,16 @@
 
 ## 📍 Overview
 
-HTTPStatus Exception: 429
+![image](https://github.com/abhraneel2004/socialite_fork/assets/115551450/d1c96f1a-ff39-463f-a50a-94be7f5ab649)
+![image](https://github.com/abhraneel2004/socialite_fork/assets/115551450/12872406-da52-4a03-9b09-64f8110c7f00)
+
+### Light Mode
+![t1](https://github.com/abhraneel2004/socialite_fork/assets/115551450/ffb6df7e-f2f1-43ef-a22c-e426b0a56a06)
+
+### Dark Mode
+![t2](https://github.com/abhraneel2004/socialite_fork/assets/115551450/3c595f3d-ca50-47b7-9017-d8d33883cb9c)
+
+
 
 ---
 
@@ -285,6 +295,57 @@ npm install
 node app.js
 ```
 
+------
+
+### For those who don't have docker installed
+
+1. Go to client folder
+```
+cd .\client\
+```
+
+2. run the command
+``` sh
+npm i
+```
+
+3. Return to Socialite folder
+``` sh
+cd ..
+```
+
+4. Go to the server folder
+```
+cd .\server\
+```
+
+5. run the command
+``` sh
+npm i
+```
+
+6. install nodemon in the system 
+    - Open Windows PowerShell in run as administrator mode
+    - run the command
+      ``` sh
+      npm install nodemon
+      ```
+7. In the client folder run the command
+``` sh
+npm start
+```
+
+8. In the server folder run the command
+``` sh
+npm index.js
+```
+
+9. Update the mongo_db link in **.env** file
+
+
+-----
+
+
 ### 🧪 Tests
 ```sh
 npm test
@@ -317,6 +378,9 @@ mern stack social media app
 Contributions are always welcome! Please follow these steps:
 1. Fork the project repository. This creates a copy of the project on your account that you can modify without affecting the original project.
 2. Clone the forked repository to your local machine using a Git client like Git or GitHub Desktop.
+```bash
+     git clone https://github.com/arnab2001/socialite.git
+ ```
 3. Create a new branch with a descriptive name (e.g., `new-feature-branch` or `bugfix-issue-123`).
 ```sh
 git checkout -b new-feature-branch
@@ -332,6 +396,44 @@ git push origin new-feature-branch
 ```
 7. Create a new pull request to the original project repository. In the pull request, describe the changes you've made and why they're necessary.
 The project maintainers will review your changes and provide feedback or merge them into the main branch.
+
+## Syncing with Upstream 🔄
+
+If the original repository has been updated, sync your fork to include the latest changes:
+
+1. **Add Upstream Remote:**
+   - Add the upstream repository as a remote.
+     ```bash
+     git remote add upstream https://github.com/arnab2001/socialite.git
+     ```
+
+2. **Fetch Upstream Changes:**
+   - Fetch the changes from the upstream repository.
+     ```bash
+     git fetch upstream
+     ```
+
+3. **Merge Upstream Changes:**
+   - Merge the changes from the upstream repository into your local branch.
+     ```bash
+     git merge upstream/main
+     ```
+
+4. **Push Changes to Your Fork:**
+   - Push the updated changes to your fork on GitHub.
+     ```bash
+     git push origin main
+     ```
+
+## Rollback a Commit ⏪
+
+If you need to undo a commit, you can use the following command:
+
+```bash
+git revert <commit-hash>
+```
+Replace <commit-hash> with the actual hash of the commit you want to revert.
+
 
 ---
 
