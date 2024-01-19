@@ -1,7 +1,6 @@
 <div align="center">
-<h1 align="center">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
-<br>socialite</h1>
+<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" alt="Alt Text" width="13%"/>
+<h1 >Socialite</h1> </div>
 
 🌟 Welcome to Socialite - The Ultimate Social Connection Hub! 🌟
 
@@ -49,8 +48,10 @@ The community at Socialite is buzzing with excitement as new members join the pl
 
 ## 📍 Overview
 
-![image](https://github.com/abhraneel2004/socialite_fork/assets/115551450/d1c96f1a-ff39-463f-a50a-94be7f5ab649)
-![image](https://github.com/abhraneel2004/socialite_fork/assets/115551450/12872406-da52-4a03-9b09-64f8110c7f00)
+  <img src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/d1c96f1a-ff39-463f-a50a-94be7f5ab649" width="35%">
+<img src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/12872406-da52-4a03-9b09-64f8110c7f00" width="40%">  
+
+
 
 ### Light Mode
 ![t1](https://github.com/abhraneel2004/socialite_fork/assets/115551450/ffb6df7e-f2f1-43ef-a22c-e426b0a56a06)
@@ -297,7 +298,7 @@ node app.js
 
 ------
 
-### For those who don't have docker installed
+## Run Without Docker
 
 1. Go to client folder
 ```
@@ -324,24 +325,31 @@ cd .\server\
 npm i
 ```
 
-6. install nodemon in the system 
-    - Open Windows PowerShell in run as administrator mode
-    - run the command
+6. install nodemon in the system (why nodemon):
+   
+    I. Open Windows PowerShell in run as administrator mode 
+    II. run the command
       ``` sh
-      npm install nodemon
+      npm install -g nodemon
       ```
-7. In the client folder run the command
+    III. In case of an error run the following command
+      ``` sh
+      Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+      ```
+    IV. Again run command II
+   
+8. In the client folder run the command
 ``` sh
 npm start
 ```
 
 8. In the server folder run the command
 ``` sh
-npm index.js
+nodemon index.js
 ```
 
 9. Update the mongo_db link in **.env** file
-
+10. Restart the server because the .env has changed **IMPORTANT** .
 
 -----
 
@@ -359,6 +367,7 @@ npm test
 mern stack social media app
 
 ## Progress:
+🚀-------🚀
 ### Backend
 - Real Time Chat
 - Dockerization
@@ -368,7 +377,6 @@ mern stack social media app
 - Better Ux
 - Comment section
 - Ui implementation of Chat window
-
 
 
 ---
@@ -447,6 +455,9 @@ This project is licensed under the `ℹ️  LICENSE-TYPE` License. See the [LICE
 
 `- ℹ️ List any resources, contributors, inspiration, etc.`
 
-[↑ Return](#Top)
+<br><br>
+<div align="center">
+<img src ="https://media.giphy.com/media/atZII8NmbPGw0/giphy.gif" width="60%" >
+</div>
 
 ---
