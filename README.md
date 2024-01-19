@@ -1,11 +1,11 @@
-
-
 <div align="center">
-<h1 align="center">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
-<br>socialite</h1>
-<h3>◦ mern stack social media app</h3>
-<h3>◦ Developed with the software and tools below.</h3>
+<img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" alt="Alt Text" width="13%"/>
+<h1 >Socialite</h1> </div>
+
+🌟 Welcome to Socialite - The Ultimate Social Connection Hub! 🌟
+
+The community at Socialite is buzzing with excitement as new members join the platform. Users are invited to immerse themselves in a world where connections thrive, friendships flourish, and happiness knows no bounds.
+
 
 <p align="center">
 <img src="https://img.shields.io/badge/SVG-FFB13B.svg?style&logo=SVG&logoColor=black" alt="SVG" />
@@ -48,7 +48,18 @@
 
 ## 📍 Overview
 
-HTTPStatus Exception: 429
+  <img src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/d1c96f1a-ff39-463f-a50a-94be7f5ab649" width="35%">
+<img src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/12872406-da52-4a03-9b09-64f8110c7f00" width="40%">  
+
+
+
+### Light Mode
+![t1](https://github.com/abhraneel2004/socialite_fork/assets/115551450/ffb6df7e-f2f1-43ef-a22c-e426b0a56a06)
+
+### Dark Mode
+![t2](https://github.com/abhraneel2004/socialite_fork/assets/115551450/3c595f3d-ca50-47b7-9017-d8d33883cb9c)
+
+
 
 ---
 
@@ -285,6 +296,65 @@ npm install
 node app.js
 ```
 
+------
+
+## Run Without Docker
+
+1. Go to client folder
+```
+cd .\client\
+```
+
+2. run the command
+``` sh
+npm i
+```
+
+3. Return to Socialite folder
+``` sh
+cd ..
+```
+
+4. Go to the server folder
+```
+cd .\server\
+```
+
+5. run the command
+``` sh
+npm i
+```
+
+6. install nodemon in the system :
+
+    **Reason:** Nodemon monitors the files in your project for any changes. When it detects a change, it automatically restarts your Node.js application. This eliminates the need for manual restarts, making the development process more efficient.
+    I. Open Windows PowerShell in run as administrator mode 
+    II. run the command
+      ``` sh
+      npm install -g nodemon
+      ```
+    III. In case of an error run the following command
+      ``` sh
+      Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+      ```
+    IV. Again run command II
+   
+7. In the client folder run the command
+``` sh
+npm start
+```
+
+8. In the server folder run the command
+``` sh
+nodemon index.js
+```
+
+9. Update the mongo_db link in **.env** file
+10. Restart the server because the .env has changed **IMPORTANT** .
+
+-----
+
+
 ### 🧪 Tests
 ```sh
 npm test
@@ -298,25 +368,28 @@ npm test
 mern stack social media app
 
 ## Progress:
-### Backend
+
+### Backend ⚙️
 - Real Time Chat
 - Dockerization
 - Caching using redis
 
-### Frontend
+### Frontend 🚀
 - Better Ux
 - Comment section
 - Ui implementation of Chat window
-
 
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are always welcome! Please follow these steps:
+🌟 Contributions are always welcome! 🤝✨ Please follow these steps: 🚀
 1. Fork the project repository. This creates a copy of the project on your account that you can modify without affecting the original project.
 2. Clone the forked repository to your local machine using a Git client like Git or GitHub Desktop.
+```bash
+     git clone https://github.com/arnab2001/socialite.git
+ ```
 3. Create a new branch with a descriptive name (e.g., `new-feature-branch` or `bugfix-issue-123`).
 ```sh
 git checkout -b new-feature-branch
@@ -333,6 +406,44 @@ git push origin new-feature-branch
 7. Create a new pull request to the original project repository. In the pull request, describe the changes you've made and why they're necessary.
 The project maintainers will review your changes and provide feedback or merge them into the main branch.
 
+## Syncing with Upstream 🔄
+
+If the original repository has been updated, sync your fork to include the latest changes:
+
+1. **Add Upstream Remote:**
+   - Add the upstream repository as a remote.
+     ```bash
+     git remote add upstream https://github.com/arnab2001/socialite.git
+     ```
+
+2. **Fetch Upstream Changes:**
+   - Fetch the changes from the upstream repository.
+     ```bash
+     git fetch upstream
+     ```
+
+3. **Merge Upstream Changes:**
+   - Merge the changes from the upstream repository into your local branch.
+     ```bash
+     git merge upstream/main
+     ```
+
+4. **Push Changes to Your Fork:**
+   - Push the updated changes to your fork on GitHub.
+     ```bash
+     git push origin main
+     ```
+
+## Rollback a Commit ⏪
+
+If you need to undo a commit, you can use the following command: ⚠️🔄
+
+```bash
+git revert <commit-hash>
+```
+Replace <commit-hash> with the actual hash of the commit you want to revert.
+
+
 ---
 
 ## 📄 License
@@ -343,8 +454,47 @@ This project is licensed under the `ℹ️  LICENSE-TYPE` License. See the [LICE
 
 ## 👏 Acknowledgments
 
-`- ℹ️ List any resources, contributors, inspiration, etc.`
+### Development Resources
 
-[↑ Return](#Top)
+Here are some valuable resources for web development using React.js, Node.js, and Docker:
+
+#### React.js
+
+- Official React Documentation: [React Documentation](https://reactjs.org/docs/getting-started.html)
+- React - A JavaScript library for building user interfaces.
+
+#### Node.js
+
+- Official Node.js Documentation: [Node.js Documentation](https://nodejs.org/en/docs/)
+- Node.js - JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+#### Docker
+
+- Official Docker Documentation: [Docker Documentation](https://docs.docker.com/)
+- Docker - Platform for developing, shipping, and running applications in containers.
+
+## Contributors ✨
+
+Gratitude is extended to these amazing individuals 💜
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/arnab2001"><img src="https://avatars.githubusercontent.com/u/63441472?v=4" width="100px;" alt=""/><br /><sub><b>Arnab Chatterjee</b></sub></a><br /><br><a href="#maintenance-Tlazypanda" title="Maintenance"><a href="https://github.com/arnab2001" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30" /></a></a><br></td>
+
+<td align="center"><a href="https://github.com/ArnabChatterjee2001"><img src="https://avatars.githubusercontent.com/u/139915335?v=4" width="100px;" alt=""/><br /><sub><b>Arnab Chatterjee</b></sub></a><br /><br><a title="Code"><a href="https://github.com/ArnabChatterjee2001" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30" /></a><br></td>
+
+<td align="center"><a href="https://github.com/itsyourap"><img src="https://avatars.githubusercontent.com/u/90060131?v=4" width="100px;" alt=""/><br /><sub><b>Ankan Pal</b></sub></a><br /><br><a  title="Code"><a href="https://github.com/itsyourap" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30" /></a><br></td>
+    
+<td align="center"><a href="https://github.com/Sneha123-zudo"><img src="https://avatars.githubusercontent.com/u/145490348?v=4" width="100px;" alt=""/><br /><sub><b>Sneha123-zudo</b></sub></a><br /> <br> <a  title="Code"><a href="https://github.com/Sneha123-zudo" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30"/></a><br></td>
+    
+<td align="center"><a href="https://github.com/abhraneel2004"><img src="https://avatars.githubusercontent.com/u/115551450?v=4" width="100px;" alt=""/><br /><sub><b>Abhraneel Karmakar</b></sub></a><br/><br><a  title="Code"><a href="https://github.com/abhraneel2004" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907" height="30" width="30" alt="logo" /></a><br></td>
+  </tr>
+  </table>
+
+
+
+<br><br>
+<div align="center">
+<img src ="https://media.giphy.com/media/atZII8NmbPGw0/giphy.gif" width="60%" >
+</div>
 
 ---
