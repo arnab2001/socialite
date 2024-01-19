@@ -325,8 +325,9 @@ cd .\server\
 npm i
 ```
 
-6. install nodemon in the system (why nodemon):
-   
+6. install nodemon in the system :
+
+    **Reason:** Nodemon monitors the files in your project for any changes. When it detects a change, it automatically restarts your Node.js application. This eliminates the need for manual restarts, making the development process more efficient.
     I. Open Windows PowerShell in run as administrator mode 
     II. run the command
       ``` sh
@@ -338,7 +339,7 @@ npm i
       ```
     IV. Again run command II
    
-8. In the client folder run the command
+7. In the client folder run the command
 ``` sh
 npm start
 ```
@@ -367,13 +368,13 @@ npm test
 mern stack social media app
 
 ## Progress:
-🚀-------🚀
-### Backend
+
+### Backend ⚙️
 - Real Time Chat
 - Dockerization
 - Caching using redis
 
-### Frontend
+### Frontend 🚀
 - Better Ux
 - Comment section
 - Ui implementation of Chat window
@@ -383,7 +384,7 @@ mern stack social media app
 
 ## 🤝 Contributing
 
-Contributions are always welcome! Please follow these steps:
+🌟 Contributions are always welcome! 🤝✨ Please follow these steps: 🚀
 1. Fork the project repository. This creates a copy of the project on your account that you can modify without affecting the original project.
 2. Clone the forked repository to your local machine using a Git client like Git or GitHub Desktop.
 ```bash
@@ -435,7 +436,7 @@ If the original repository has been updated, sync your fork to include the lates
 
 ## Rollback a Commit ⏪
 
-If you need to undo a commit, you can use the following command:
+If you need to undo a commit, you can use the following command: ⚠️🔄
 
 ```bash
 git revert <commit-hash>
@@ -453,7 +454,43 @@ This project is licensed under the `ℹ️  LICENSE-TYPE` License. See the [LICE
 
 ## 👏 Acknowledgments
 
-`- ℹ️ List any resources, contributors, inspiration, etc.`
+### Development Resources
+
+Here are some valuable resources for web development using React.js, Node.js, and Docker:
+
+#### React.js
+
+- Official React Documentation: [React Documentation](https://reactjs.org/docs/getting-started.html)
+- React - A JavaScript library for building user interfaces.
+
+#### Node.js
+
+- Official Node.js Documentation: [Node.js Documentation](https://nodejs.org/en/docs/)
+- Node.js - JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+#### Docker
+
+- Official Docker Documentation: [Docker Documentation](https://docs.docker.com/)
+- Docker - Platform for developing, shipping, and running applications in containers.
+
+## Contributors ✨
+
+Gratitude is extended to these amazing individuals 💜
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/arnab2001"><img src="https://avatars.githubusercontent.com/u/63441472?v=4" width="100px;" alt=""/><br /><sub><b>Arnab Chatterjee</b></sub></a><br /><br><a href="#maintenance-Tlazypanda" title="Maintenance"><a href="https://github.com/arnab2001" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30" /></a></a><br></td>
+
+<td align="center"><a href="https://github.com/ArnabChatterjee2001"><img src="https://avatars.githubusercontent.com/u/139915335?v=4" width="100px;" alt=""/><br /><sub><b>Arnab Chatterjee</b></sub></a><br /><br><a title="Code"><a href="https://github.com/ArnabChatterjee2001" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30" /></a><br></td>
+
+<td align="center"><a href="https://github.com/itsyourap"><img src="https://avatars.githubusercontent.com/u/90060131?v=4" width="100px;" alt=""/><br /><sub><b>Ankan Pal</b></sub></a><br /><br><a  title="Code"><a href="https://github.com/itsyourap" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30" /></a><br></td>
+    
+<td align="center"><a href="https://github.com/Sneha123-zudo"><img src="https://avatars.githubusercontent.com/u/145490348?v=4" width="100px;" alt=""/><br /><sub><b>Sneha123-zudo</b></sub></a><br /> <br> <a  title="Code"><a href="https://github.com/Sneha123-zudo" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907"  height="30" width="30"/></a><br></td>
+    
+<td align="center"><a href="https://github.com/abhraneel2004"><img src="https://avatars.githubusercontent.com/u/115551450?v=4" width="100px;" alt=""/><br /><sub><b>Abhraneel Karmakar</b></sub></a><br/><br><a  title="Code"><a href="https://github.com/abhraneel2004" target="blank"><img align="center" src="https://github.com/abhraneel2004/socialite_fork/assets/115551450/826c42f3-5f22-463c-8656-339ef95e8907" height="30" width="30" alt="logo" /></a><br></td>
+  </tr>
+  </table>
+
+
 
 <br><br>
 <div align="center">
