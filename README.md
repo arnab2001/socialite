@@ -8,6 +8,7 @@ The community at Socialite is buzzing with excitement as new members join the pl
 
 
 <p align="center">
+
 <img src="https://img.shields.io/badge/SVG-FFB13B.svg?style&logo=SVG&logoColor=black" alt="SVG" />
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style&logo=JavaScript&logoColor=black" alt="JavaScript" />
 <img src="https://img.shields.io/badge/.ENV-ECD53F.svg?style&logo=dotenv&logoColor=black" alt=".ENV" />
@@ -20,9 +21,24 @@ The community at Socialite is buzzing with excitement as new members join the pl
 <img src="https://img.shields.io/badge/Markdown-000000.svg?style&logo=Markdown&logoColor=white" alt="Markdown" />
 <img src="https://img.shields.io/badge/Express-000000.svg?style&logo=Express&logoColor=white" alt="Express" />
 </p>
-<img src="https://img.shields.io/github/license/arnab2001/socialite?style&color=5D6D7E" alt="GitHub license" />
-<img src="https://img.shields.io/github/last-commit/arnab2001/socialite?style&color=5D6D7E" alt="git-last-commit" />
-<img src="https://img.shields.io/github/commit-activity/m/arnab2001/socialite?style&color=5D6D7E" alt="GitHub commit activity" />
+</div>
+
+<div align="center">
+
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=arnab2001%2Fsocialite%20&countColor=%23263759&style=flat)
+![GitHub forks](https://img.shields.io/github/forks/arnab2001/socialite)
+![GitHub Repo stars](https://img.shields.io/github/stars/arnab2001/socialite)
+![GitHub contributors](https://img.shields.io/github/contributors/arnab2001/socialite)
+![GitHub last commit](https://img.shields.io/github/last-commit/arnab2001/socialite)
+![GitHub repo size](https://img.shields.io/github/repo-size/arnab2001/socialite)
+![GitHub total lines](https://sloc.xyz/github/arnab2001/socialite)
+![Github](https://img.shields.io/github/license/arnab2001/socialite)
+![GitHub issues](https://img.shields.io/github/issues/arnab2001/socialite)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/arnab2001/socialite)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/arnab2001/socialite)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/arnab2001/socialite)
 <img src="https://img.shields.io/github/languages/top/arnab2001/socialite?style&color=5D6D7E" alt="GitHub top language" />
 </div>
 
