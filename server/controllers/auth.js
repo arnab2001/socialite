@@ -3,20 +3,35 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import cloudinary from "cloudinary";
+/* REGISTER USER */ 
 
-/* REGISTER USER */
+
 export const register = async (req, res) => {
+  console.log(req.file);
   try {
     const {
       firstName,
       lastName,
       email,
       password,
-      picturePath,
+     
       friends,
       location,
       occupation,
     } = req.body;
+
+    let picturePath;
+    if (req.file) { 
+      try {
+        const result = await cloudinary.uploader.upload(req.file.path);
+        picturePath = result.secure_url;
+      }
+      catch (err) {
+        console.log(err);
+      }
+      
+    }
 
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);

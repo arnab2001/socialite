@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import {v2 as cloudinary} from 'cloudinary';
 import dotenv from "dotenv";
 import multer from "multer";
 import morgan from "morgan";
@@ -10,7 +11,7 @@ import { fileURLToPath } from "url";
 import helmet from "helmet";
 import http from "http";
 import authRouts from "./routes/auth.js";
-import userRouts from "./routes/users.js";
+import userRouts from "./routes/users.js"; 
 import { register } from "./controllers/auth.js";
 import postRouts from "./routes/posts.js";
 // import chatRoutes from './routes/chat.js';
@@ -48,6 +49,12 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public")));
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./public");
@@ -76,6 +83,7 @@ setIoInstance(io);
 io.on("connection", (socket) => {
     handleChatConnection(socket);
   });
+
 
 mongoose
   .connect(process.env.MONGO_URL, {
