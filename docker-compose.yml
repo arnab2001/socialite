@@ -17,7 +17,7 @@ services:
     ports:
       - "3001:3001"
     environment:
-      MONGO_URL: "mongodb+srv://arnab0321:bH1Ttke9EZBmYClg@cluster0.dehf4yw.mongodb.net/?retryWrites=true&w=majority"
+      MONGO_URL: "<>"
     depends_on:
       - mongo
 
